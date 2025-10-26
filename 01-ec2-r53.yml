@@ -6,11 +6,12 @@
     sg_id: "sg-00026f72dcc9cd419"
     zone_id: "Z10173741Y5Y3INEWNGTN"
     domain_name: "malleswari.fun"
-    instances:
-    - mongodb
+    #  we can pass instances through command line using -e
+    # instances:
+    # - mongodb
     # - redis
     # - user
-    - frontend
+
   tasks: 
   - name: create ec2 instance  
     amazon.aws.ec2_instance:

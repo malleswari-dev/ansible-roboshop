@@ -8,7 +8,15 @@
       state: present
     loop:
     - maven
-    - mysql  
+    - mysql 
+
+  - name: install mysql python libraries
+    ansible.builtin.pip:
+      executable: pip3.9
+      name: "{{ item }}"
+    loop:
+    # - cryptography
+    - PyMySQL   
 
   - name: create roboshop system user
     ansible.builtin.user:

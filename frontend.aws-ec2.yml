@@ -1,55 +1,18 @@
-# plugin: amazon.aws.aws_ec2
-# regions:
-#   - us-east-1
-# filters:
-#   tag:Name: frontend
-#   instance-state-name: running
-
-# hostnames:
-#   - private_ip_address
-# compose:
-#   # Use the private IP address to connect to the host
-#   # (note: this does not modify inventory_hostname, which is set via I(hostnames))
-#   ansible_host: private_ip_address
-# keyed_groups:
-#   - key: tags.Name
-#     prefix: "dynamic" # dynamic_frontend
-#     separator: '_' 
-
-# plugin: amazon.aws.aws_ec2
-# regions:
-#   - us-east-1
-
-# filters:
-#   tag:Name:
-#     - frontend
-#   instance-state-name: 
-#     - running
-
-# hostnames:
-#   - private_ip_address
-
-# compose:
-#   ansible_host: private_ip_address
-
-# keyed_groups:
-#   - key: tags.Name
-#     prefix: dynamic
-#     separator: '_'
-
 plugin: amazon.aws.aws_ec2
 regions:
-- us-east-1
+  - us-east-1
 filters:
   tag:Name: frontend
-  instance-state-name : Running
+  instance-state-name: running
+
 hostnames:
-  - private-ip-address
+  - private_ip_address
 compose:
-  # This sets the `ansible_host` variable to connect with the private IP address without changing the hostname.
+  # Use the private IP address to connect to the host
+  # (note: this does not modify inventory_hostname, which is set via I(hostnames))
   ansible_host: private_ip_address
 keyed_groups:
-  # add hosts to tag_Name_value groups for each aws_ec2 host's tags.Name variable.
   - key: tags.Name
     prefix: "dynamic" # dynamic_frontend
-    separator: "_"
+    separator: '_' 
+

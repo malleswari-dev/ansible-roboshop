@@ -6,7 +6,7 @@ filters:
   instance-state-name : running
 
 hostnames:
-  - private_ip_address
+  - private-ip-address
 compose:
   # Use the private IP address to connect to the host
   # (note: this does not modify inventory_hostname, which is set via I(hostnames))

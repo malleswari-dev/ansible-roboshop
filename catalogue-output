@@ -1,4 +1,4 @@
- "msg": {
+   {
         "changed": true,
         "cmd": [
             "mongosh",
